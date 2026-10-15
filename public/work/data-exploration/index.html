@@ -1,0 +1,541 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#19192e">
+<title>Reading the Dataset - Nguyen Huyen Minh Nhat</title>
+<meta name="description" content="An interactive data study using real KNIME coursework: explore how brand-label case variants change a television-record summary.">
+<link rel="canonical" href="__SITE_ORIGIN__/work/data-exploration/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Reading the Dataset - Nguyen Huyen Minh Nhat">
+<meta property="og:description" content="An interactive data study using real KNIME coursework: explore how brand-label case variants change a television-record summary.">
+<meta property="og:url" content="__SITE_ORIGIN__/work/data-exploration/">
+<meta property="og:image" content="__SITE_ORIGIN__/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/site.js" defer></script><link rel="stylesheet" href="/assets/moon.css">
+<link rel="stylesheet" href="/assets/typography.css">
+<link rel="preload" href="/assets/manrope.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/kajiro.woff" as="font" type="font/woff" crossorigin>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="/" aria-label="Nguyen Huyen Minh Nhat, home"><span class="brand-mark" aria-hidden="true">NN</span><span class="brand-name">PERSONAL PORTFOLIO<small>SOFTWARE / DATA</small></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu +</button><nav id="navigation" class="site-nav" aria-label="Main navigation"><a href="/#work">Selected work</a><a href="/#about">About</a><a href="/#education">Education</a><a href="/#documents">Resume &amp; CV</a><a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
+</div>
+<div class="reading-progress" aria-hidden="true"></div></header><main id="main"><section class="case-intro wrap"><a class="back-link" href="/#work"><span aria-hidden="true">←</span> All selected work</a><p class="eyebrow">03 / Academic data study</p>
+<h1>Reading the dataset.<br><em>Before drawing conclusions.</em>
+</h1>
+<p class="case-deck">A KNIME exploration of television records, with a closer look at what inconsistent brand labels do to a summary.</p>
+<dl class="case-facts">
+<div>
+<dt>My role</dt>
+<dd>Student · Data exploration</dd>
+</div>
+<div>
+<dt>Context</dt>
+<dd>COS30045 · Data Visualisation</dd>
+</div>
+<div>
+<dt>Tools &amp; technologies</dt>
+<dd>KNIME · Filtering · GroupBy · Visualisation</dd>
+</div>
+</dl></section><div class="wrap"><div class="data-cover">
+<div class="data-cover-title">Three spellings.<br><em>One question.</em>
+</div>
+<div>
+<div class="data-mini-row">
+<span>KOGAN</span><strong>246</strong>
+</div>
+<div class="data-mini-row">
+<span>Kogan</span><strong>427</strong>
+</div>
+<div class="data-mini-row">
+<span>kogan</span><strong>115</strong>
+</div>
+<div class="data-mini-result">
+<span>One label. A clearer picture.</span><strong>788</strong>
+</div>
+</div>
+</div></div>
+<div class="wrap case-layout">
+<aside class="case-sidebar"><div class="case-sidebar-inner">
+<nav aria-label="Case study sections"><p class="eyebrow">In this study</p>
+<a href="#context">The study</a><a href="#process">The workflow</a><a href="#explore">Explore the data</a><a href="#reflection">What the data reveals</a><a href="#evidence">Source materials</a></nav><div class="external-links">
+<p class="eyebrow">Explore the evidence</p>
+<a href="https://github.com/NhatNguyen2407/Swinburne/tree/main/COS30045/Assignments/Demo_01" target="_blank" rel="noopener noreferrer">Coursework repository ↗</a><a href="/assets/brand-counts.csv" target="_blank" rel="noopener noreferrer">Original CSV ↗</a>
+</div>
+</div></aside><article class="case-content"><section id="context" class="case-section"><p class="eyebrow">01 / Context</p>
+<h2>What does the summary actually count?</h2>
+<p>In COS30045, I used KNIME to explore a television dataset: importing records, preparing fields, filtering, grouping by brand, and exporting a summary for visualisation.</p>
+<p>The exported file contains <code>Brand_Reg</code> and <code>Count(SoldIn)</code>. The numbers below are record counts from that export. They do not measure sales, popularity, or market share.</p></section><section id="process" class="case-section"><p class="eyebrow">02 / Process</p>
+<h2>A workflow worth questioning.</h2>
+<ol class="flow-list">
+<li>
+<strong>Import</strong><span>Read the television data into a repeatable KNIME workflow.</span>
+</li>
+<li>
+<strong>Prepare &amp; filter</strong><span>Explore string cleaning and filters for availability and market.</span>
+</li>
+<li>
+<strong>Group &amp; export</strong><span>Aggregate records by brand label and export a CSV summary.</span>
+</li>
+<li>
+<strong>Inspect again</strong><span>Check whether different spellings split what appears to be one category.</span>
+</li>
+</ol>
+<p>The original export still contains uppercase, title-case, and lowercase variants. Keeping that limitation visible makes the next step in the analysis concrete.</p></section><section id="explore" class="case-section"><p class="eyebrow">03 / Interactive study</p>
+<h2>A small change.<br>A different ranking.</h2>
+<p>Try combining labels that differ only by letter case. The toggle changes the displayed grouping; it leaves the original export intact.</p>
+<div class="data-demo">
+<div class="data-demo-head"><div>
+<h3>Television records by brand label</h3>
+<p id="chart-status" aria-live="polite">Top 5 original labels. Record counts, not sales.</p>
+</div></div>
+<div class="chart-controls">
+<label><input id="normalise" type="checkbox"> Combine case variants</label><label for="chart-limit">Show <select id="chart-limit"><option value="5">Top 5</option>
+<option value="10">Top 10</option>
+<option value="20">Top 20</option></select></label>
+</div>
+<div class="bars" data-brand-chart aria-label="Ranked brand record counts">
+<div class="chart-row">
+<span class="chart-label">SAMSUNG ELECTRONICS</span><div class="chart-track" aria-hidden="true"><div class="chart-bar" style="--bar:92.5%"></div></div>
+<span class="chart-value">740</span>
+</div>
+<div class="chart-row">
+<span class="chart-label">LG</span><div class="chart-track" aria-hidden="true"><div class="chart-bar" style="--bar:84.625%"></div></div>
+<span class="chart-value">677</span>
+</div>
+<div class="chart-row">
+<span class="chart-label">Kogan</span><div class="chart-track" aria-hidden="true"><div class="chart-bar" style="--bar:53.37499999999999%"></div></div>
+<span class="chart-value">427</span>
+</div>
+<div class="chart-row">
+<span class="chart-label">HISENSE</span><div class="chart-track" aria-hidden="true"><div class="chart-bar" style="--bar:32.875%"></div></div>
+<span class="chart-value">263</span>
+</div>
+<div class="chart-row">
+<span class="chart-label">KOGAN</span><div class="chart-track" aria-hidden="true"><div class="chart-bar" style="--bar:30.75%"></div></div>
+<span class="chart-value">246</span>
+</div>
+</div>
+<div class="chart-baseline" aria-hidden="true">
+<span>0</span><span>400</span><span>800 records</span>
+</div>
+<p class="chart-note">Source: my committed BrandCount.csv export. Case normalisation trims labels and converts them to uppercase. It does not merge aliases such as SAMSUNG and SAMSUNG ELECTRONICS.</p>
+</div>
+<details class="data-table-toggle"><summary id="table-caption">All original labels and record counts</summary><div class="data-table-wrap"><table id="brand-table" class="data-table">
+<caption class="eyebrow">Complete data for the selected grouping</caption>
+<thead><tr>
+<th scope="col">Brand label</th>
+<th scope="col">Records</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>AIWA</td>
+<td>44</td>
+</tr>
+<tr>
+<td>AKAI</td>
+<td>38</td>
+</tr>
+<tr>
+<td>AOA</td>
+<td>5</td>
+</tr>
+<tr>
+<td>ARK</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Altius</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Avel Innovations</td>
+<td>3</td>
+</tr>
+<tr>
+<td>BAUHN</td>
+<td>73</td>
+</tr>
+<tr>
+<td>BELGIQUE</td>
+<td>9</td>
+</tr>
+<tr>
+<td>BLAUPUNKT</td>
+<td>98</td>
+</tr>
+<tr>
+<td>Blaupunkt</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Brooklyn</td>
+<td>1</td>
+</tr>
+<tr>
+<td>CAIXUN</td>
+<td>12</td>
+</tr>
+<tr>
+<td>CHiQ</td>
+<td>47</td>
+</tr>
+<tr>
+<td>COOCAA</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Caixun</td>
+<td>50</td>
+</tr>
+<tr>
+<td>DECAMAX</td>
+<td>1</td>
+</tr>
+<tr>
+<td>DEVANTI</td>
+<td>1</td>
+</tr>
+<tr>
+<td>DEVANTi</td>
+<td>1</td>
+</tr>
+<tr>
+<td>DGTEC</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Dynalink</td>
+<td>1</td>
+</tr>
+<tr>
+<td>EKO</td>
+<td>189</td>
+</tr>
+<tr>
+<td>EMETE</td>
+<td>55</td>
+</tr>
+<tr>
+<td>ENGLAON</td>
+<td>32</td>
+</tr>
+<tr>
+<td>FFALCON</td>
+<td>26</td>
+</tr>
+<tr>
+<td>FPD</td>
+<td>3</td>
+</tr>
+<tr>
+<td>FURRION</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Gorilla</td>
+<td>2</td>
+</tr>
+<tr>
+<td>HISENSE</td>
+<td>263</td>
+</tr>
+<tr>
+<td>HYUNDAI</td>
+<td>12</td>
+</tr>
+<tr>
+<td>Hubbl</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Hubbl Glass</td>
+<td>2</td>
+</tr>
+<tr>
+<td>ILUMA</td>
+<td>14</td>
+</tr>
+<tr>
+<td>JVC</td>
+<td>141</td>
+</tr>
+<tr>
+<td>KOGAN</td>
+<td>246</td>
+</tr>
+<tr>
+<td>KONIC</td>
+<td>16</td>
+</tr>
+<tr>
+<td>KONKA</td>
+<td>34</td>
+</tr>
+<tr>
+<td>Kodak</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Kogan</td>
+<td>427</td>
+</tr>
+<tr>
+<td>LG</td>
+<td>677</td>
+</tr>
+<tr>
+<td>LOEWE</td>
+<td>27</td>
+</tr>
+<tr>
+<td>LSP TV</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Linsar</td>
+<td>44</td>
+</tr>
+<tr>
+<td>METZ</td>
+<td>7</td>
+</tr>
+<tr>
+<td>MYVI</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Monster</td>
+<td>4</td>
+</tr>
+<tr>
+<td>PHILIPS</td>
+<td>118</td>
+</tr>
+<tr>
+<td>PRISM+</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Palsonic</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Panasonic</td>
+<td>86</td>
+</tr>
+<tr>
+<td>Philips</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Polaroid</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Q.Bell</td>
+<td>2</td>
+</tr>
+<tr>
+<td>QBELL</td>
+<td>11</td>
+</tr>
+<tr>
+<td>RCA</td>
+<td>1</td>
+</tr>
+<tr>
+<td>S VISION</td>
+<td>1</td>
+</tr>
+<tr>
+<td>SAMSUNG</td>
+<td>243</td>
+</tr>
+<tr>
+<td>SAMSUNG ELECTRONICS</td>
+<td>740</td>
+</tr>
+<tr>
+<td>SHARP</td>
+<td>10</td>
+</tr>
+<tr>
+<td>SKYWORTH</td>
+<td>16</td>
+</tr>
+<tr>
+<td>SMARTTECH</td>
+<td>3</td>
+</tr>
+<tr>
+<td>SMTV</td>
+<td>5</td>
+</tr>
+<tr>
+<td>SONIQ</td>
+<td>1</td>
+</tr>
+<tr>
+<td>SONY</td>
+<td>65</td>
+</tr>
+<tr>
+<td>SVISION</td>
+<td>6</td>
+</tr>
+<tr>
+<td>SYLVOX</td>
+<td>99</td>
+</tr>
+<tr>
+<td>Samsung</td>
+<td>119</td>
+</tr>
+<tr>
+<td>ShareTV</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Sharp</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Shenzhen Xinchaoda Technology Co., Ltd</td>
+<td>4</td>
+</tr>
+<tr>
+<td>Signify</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Skyworth</td>
+<td>8</td>
+</tr>
+<tr>
+<td>Smarttech</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Sony</td>
+<td>15</td>
+</tr>
+<tr>
+<td>Spark Electronics</td>
+<td>29</td>
+</tr>
+<tr>
+<td>Sphere</td>
+<td>13</td>
+</tr>
+<tr>
+<td>Stan Cash</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Sylvox</td>
+<td>33</td>
+</tr>
+<tr>
+<td>TAVICE</td>
+<td>1</td>
+</tr>
+<tr>
+<td>TCL</td>
+<td>91</td>
+</tr>
+<tr>
+<td>TEAC</td>
+<td>14</td>
+</tr>
+<tr>
+<td>TECO</td>
+<td>10</td>
+</tr>
+<tr>
+<td>TELEFUNKEN</td>
+<td>17</td>
+</tr>
+<tr>
+<td>TENET</td>
+<td>1</td>
+</tr>
+<tr>
+<td>THOMSON</td>
+<td>2</td>
+</tr>
+<tr>
+<td>TOSHIBA</td>
+<td>50</td>
+</tr>
+<tr>
+<td>VDT</td>
+<td>1</td>
+</tr>
+<tr>
+<td>VEON</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Veon</td>
+<td>28</td>
+</tr>
+<tr>
+<td>WALTON</td>
+<td>24</td>
+</tr>
+<tr>
+<td>WINTAL</td>
+<td>1</td>
+</tr>
+<tr>
+<td>Yokohama</td>
+<td>1</td>
+</tr>
+<tr>
+<td>ZEN TV</td>
+<td>4</td>
+</tr>
+<tr>
+<td>coocaa</td>
+<td>9</td>
+</tr>
+<tr>
+<td>digitech</td>
+<td>9</td>
+</tr>
+<tr>
+<td>kogan</td>
+<td>115</td>
+</tr>
+<tr>
+<td>yokohama</td>
+<td>2</td>
+</tr>
+</tbody>
+</table></div></details><p style="margin-top:20px"><a href="/assets/brand-counts.csv" download>Download the original CSV ↓</a></p></section><section id="reflection" class="case-section"><p class="eyebrow">04 / What the data reveals</p>
+<h2>Cleaning changes the question you can answer.</h2>
+<p>The export has three Kogan labels: <strong>KOGAN (246)</strong>, <strong>Kogan (427)</strong>, and <strong>kogan (115)</strong>. Combining only their letter-case variants gives <strong>788 records</strong>.</p>
+<p>This is a useful reminder that a chart can accurately display a table and still give an incomplete picture. Labels, grouping decisions, and the unit being counted all need attention before the chart is interpreted.</p>
+<div class="callout"><p><strong>Limit:</strong> This interactive view is a new presentation of the committed export, not a re-execution of the KNIME workflow. Case normalisation alone does not establish that all entities have been correctly resolved.</p></div></section><section id="evidence" class="case-section"><p class="eyebrow">05 / Source materials</p>
+<h2>From workflow to exported result.</h2>
+<div class="evidence-list">
+<a class="evidence-item" href="https://github.com/NhatNguyen2407/Swinburne/blob/main/COS30045/Assignments/Demo_01/README.md" target="_blank" rel="noopener noreferrer"><strong>Documented workflow<span aria-hidden="true">↗</span></strong><p>The coursework overview and exploration process.</p></a><a class="evidence-item" href="https://github.com/NhatNguyen2407/Swinburne/blob/main/COS30045/Assignments/Demo_01/COS30045_Lab01.knwf" target="_blank" rel="noopener noreferrer"><strong>KNIME workflow artifact<span aria-hidden="true">↗</span></strong><p>The committed .knwf file for the university exercise.</p></a><a class="evidence-item" href="https://github.com/NhatNguyen2407/Swinburne/blob/main/COS30045/Assignments/Demo_01/BrandCount.csv" target="_blank" rel="noopener noreferrer"><strong>Original exported counts<span aria-hidden="true">↗</span></strong><p>The source for every value in the interactive example.</p></a>
+</div></section></article>
+</div>
+<section class="case-next"><a class="wrap" href="/work/dioxyzine-frog/"><div>
+<p class="eyebrow">Next selected project</p>
+<h2>Dioxyzine Frog</h2>
+</div>
+<span class="arrow" aria-hidden="true">→</span></a></section></main><footer class="site-footer"><div class="wrap footer-inner">
+<span>© 2026 NGUYEN HUYEN MINH NHAT</span><div class="footer-links">
+<a href="https://github.com/NhatNguyen2407" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="mailto:john.bibibi@gmail.com">EMAIL ↗</a><a href="#main">BACK TO TOP ↑</a>
+</div>
+<span>BUILT WITH CARE · VIETNAM</span>
+</div></footer><div class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

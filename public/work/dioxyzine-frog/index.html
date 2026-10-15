@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#19192e">
+<title>Dioxyzine Frog - Nguyen Huyen Minh Nhat</title>
+<meta name="description" content="An independent e-commerce project: frontend development, backend integration, and the engineering behind the customer journey.">
+<link rel="canonical" href="__SITE_ORIGIN__/work/dioxyzine-frog/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dioxyzine Frog - Nguyen Huyen Minh Nhat">
+<meta property="og:description" content="An independent e-commerce project: frontend development, backend integration, and the engineering behind the customer journey.">
+<meta property="og:url" content="__SITE_ORIGIN__/work/dioxyzine-frog/">
+<meta property="og:image" content="__SITE_ORIGIN__/assets/social-card.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
+<link rel="stylesheet" href="/assets/style.css">
+<script src="/assets/site.js" defer></script><link rel="stylesheet" href="/assets/moon.css">
+<link rel="stylesheet" href="/assets/typography.css">
+<link rel="preload" href="/assets/manrope.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="/assets/kajiro.woff" as="font" type="font/woff" crossorigin>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="wrap header-inner">
+<a class="brand" href="/" aria-label="Nguyen Huyen Minh Nhat, home"><span class="brand-mark" aria-hidden="true">NN</span><span class="brand-name">PERSONAL PORTFOLIO<small>SOFTWARE / DATA</small></span></a><button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu +</button><nav id="navigation" class="site-nav" aria-label="Main navigation"><a href="/#work">Selected work</a><a href="/#about">About</a><a href="/#education">Education</a><a href="/#documents">Resume &amp; CV</a><a class="nav-contact" href="/#contact">Let’s talk <span aria-hidden="true">↗</span></a></nav>
+</div>
+<div class="reading-progress" aria-hidden="true"></div></header><main id="main"><section class="case-intro wrap"><a class="back-link" href="/#work"><span aria-hidden="true">←</span> All selected work</a><p class="eyebrow">01 / Independent web application</p>
+<h1>Dioxyzine Frog.<br><em>More than a storefront.</em>
+</h1>
+<p class="case-deck">A custom-plushie and accessories shop that became my hands-on introduction to the systems behind an e-commerce experience.</p>
+<dl class="case-facts">
+<div>
+<dt>My role</dt>
+<dd>Frontend &amp; backend integration</dd>
+</div>
+<div>
+<dt>Context</dt>
+<dd>Independent project · Ongoing development</dd>
+</div>
+<div>
+<dt>Tools &amp; technologies</dt>
+<dd>React · Vite · Supabase · PayPal Sandbox · Vercel</dd>
+</div>
+</dl></section><div class="wrap"><figure class="case-cover" style="margin:0"><img src="/assets/dioxyzine-banner.webp" width="1800" height="1012" alt="Original Dioxyzine Frog banner pairing a doll illustration with its custom plushie"><figcaption class="cover-note">Original project brand imagery · Not a UI screenshot</figcaption></figure></div>
+<div class="wrap case-layout">
+<aside class="case-sidebar"><div class="case-sidebar-inner">
+<nav aria-label="Case study sections"><p class="eyebrow">In this study</p>
+<a href="#context">The context</a><a href="#contribution">My contribution</a><a href="#decisions">Engineering decisions</a><a href="#evidence">Code &amp; evidence</a><a href="#reflection">What I learned</a></nav><div class="external-links">
+<p class="eyebrow">Explore the evidence</p>
+<a href="https://dioxyzinefrog.vercel.app" target="_blank" rel="noopener noreferrer">Open the live site ↗</a><a href="https://github.com/NhatNguyen2407/Project" target="_blank" rel="noopener noreferrer">Source repository ↗</a>
+</div>
+</div></aside><article class="case-content"><section id="context" class="case-section"><p class="eyebrow">01 / Context</p>
+<h2>A small product world.<br>A connected customer journey.</h2>
+<p>Dioxyzine Frog is an e-commerce project for custom plushies, dolls, and accessories. The application brings together product discovery, inquiries, customer accounts, checkout, and order tracking.</p>
+<p>My work has been to develop and maintain those journeys while learning how the frontend connects to authentication, database rules, payment services, and deployment.</p></section><section id="contribution" class="case-section"><p class="eyebrow">02 / My contribution</p>
+<h2>Working across the experience.</h2>
+<p>I work across the React interface and its backend integrations, using AI-assisted development as part of the process. The repository began with a Figma-origin code bundle; my contribution includes extending features, connecting services, debugging, and reviewing changes through GitHub.</p>
+<ol class="flow-list">
+<li>
+<strong>Discover</strong><span>Product browsing, product details, custom inquiries, and wishlist.</span>
+</li>
+<li>
+<strong>Choose</strong><span>Cart and checkout interactions, including PayPal Sandbox integration.</span>
+</li>
+<li>
+<strong>Follow through</strong><span>Customer profile, order history, and tracking flows.</span>
+</li>
+<li>
+<strong>Maintain</strong><span>Administrative features, environment configuration, and release fixes.</span>
+</li>
+</ol></section><section id="decisions" class="case-section"><p class="eyebrow">03 / Engineering decisions</p>
+<h2>The work behind the visible page.</h2>
+<h3>Keep order logic behind the interface</h3>
+<p>A checkout interface is only one part of an order. The project connects the React application to Supabase services and server-side payment handling, with PayPal Sandbox used for development and testing.</p>
+<h3>Make access boundaries explicit</h3>
+<p>The security-hardening work addresses row-level security, storage writes, and database function permissions. It also narrows the information exposed through public order tracking.</p>
+<h3>Integrate changes as a release</h3>
+<p>Pre-launch work brought together profile settings, wishlist improvements, responsive and accessibility fixes, and payment compatibility changes. GitHub pull requests make that integration work visible.</p>
+<div class="callout"><p><strong>Current boundary:</strong> PayPal remains in Sandbox. This case study demonstrates implementation and testing work; it does not claim live-payment readiness or commercial results.</p></div></section><section id="evidence" class="case-section"><p class="eyebrow">04 / Code &amp; evidence</p>
+<h2>The changes are there to inspect.</h2>
+<div class="evidence-list">
+<a class="evidence-item" href="https://github.com/NhatNguyen2407/Project/pull/1" target="_blank" rel="noopener noreferrer"><strong>Security hardening · PR #1<span aria-hidden="true">↗</span></strong><p>Merged changes covering RLS, storage writes, RPC permissions, and public tracking responses.</p></a><a class="evidence-item" href="https://github.com/NhatNguyen2407/Project/pull/6" target="_blank" rel="noopener noreferrer"><strong>Pre-launch integration · PR #6<span aria-hidden="true">↗</span></strong><p>Merged on 13 October 2026. Brings hardening and interface work into the main branch, with Sandbox testing retained.</p></a><a class="evidence-item" href="https://github.com/NhatNguyen2407/Project/blob/main/Working_Projects/Dioxyzine_Frog/src/app/App.jsx" target="_blank" rel="noopener noreferrer"><strong>Application routes<span aria-hidden="true">↗</span></strong><p>See the implemented customer and administrative flows in the source.</p></a>
+</div></section><section id="reflection" class="case-section"><p class="eyebrow">05 / Reflection</p>
+<h2>A useful interface needs a reliable foundation.</h2>
+<p>This project has pushed my learning beyond individual components. A change to checkout can involve application state, database access, environment variables, and deployment configuration at the same time.</p>
+<p>It has also made me more deliberate about describing project status: what is implemented, what has been tested, and what still needs validation. That distinction matters as much as the polish of the page.</p></section></article>
+</div>
+<section class="case-next"><a class="wrap" href="/work/sigma-security/"><div>
+<p class="eyebrow">Next selected project</p>
+<h2>SigmaSecurity</h2>
+</div>
+<span class="arrow" aria-hidden="true">→</span></a></section></main><footer class="site-footer"><div class="wrap footer-inner">
+<span>© 2026 NGUYEN HUYEN MINH NHAT</span><div class="footer-links">
+<a href="https://github.com/NhatNguyen2407" target="_blank" rel="noopener noreferrer">GITHUB ↗</a><a href="mailto:john.bibibi@gmail.com">EMAIL ↗</a><a href="#main">BACK TO TOP ↑</a>
+</div>
+<span>BUILT WITH CARE · VIETNAM</span>
+</div></footer><div class="toast" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

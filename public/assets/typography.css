@@ -1,0 +1,55 @@
+/* Reference-inspired typography across the homepage and all case studies. */
+@font-face{font-family:Portfolio Sans;src:url('manrope.woff') format('woff');font-weight:200 800;font-style:normal;font-display:swap}
+@font-face{font-family:Portfolio Display;src:url('kajiro.woff') format('woff');font-weight:400 700;font-style:normal;font-display:swap}
+:root{--sans:'Portfolio Sans',Arial,sans-serif;--serif:var(--sans);--display:'Portfolio Display',Impact,sans-serif}
+body{font-family:var(--sans);font-synthesis:none}
+button,input,select,textarea{font-family:var(--sans)}
+em,.serif{font-family:var(--sans)}
+.moon-hero h1{font-family:var(--display)}
+.brand-name,.site-nav,.moon-topline,.moon-intro,.moon-identity,.moon-label,.filter-group,.project-meta p,.project-kind,.project-blurb,.moon-process h3,.moon-process p,.tool-grid,.about-copy,.about-note,.course-row,.document-link p,.contact-options,.email-address,.site-footer,.case-deck,.case-section p,.case-section li,.case-sidebar{font-family:var(--sans)}
+.moon-label,.moon-process h3{font-weight:500;letter-spacing:-.015em}
+.moon-identity p{font-weight:500;letter-spacing:-.04em}
+.project-meta h3{font-size:28px;line-height:1.2}
+.about-main h2,.section-title,.education-card h3,.study-interests h3,.document-intro h2,.document-title,.case-intro h1,.case-section h2,.case-next h2{line-height:1.15}
+.contact h2{font-family:var(--sans);font-weight:800;font-size:clamp(32px,3.8vw,58px);line-height:1.04;letter-spacing:-.055em}
+@media(max-width:760px){.project-meta h3{font-size:26px}.contact h2{font-size:clamp(30px,7.8vw,55px)}.about-main h2{font-size:42px}.section-title{font-size:32px}}
+
+/* Owner-supplied Kajiro. Advercase Demo is not included in hosted assets. */
+[data-type-role="display"],.moon-identity [data-type-role="display"],.moon-label[data-type-role="display"],.moon-process h3[data-type-role="display"],.contact h2[data-type-role="display"]{font-family:var(--display);font-weight:400;letter-spacing:.005em;line-height:1.05}
+.moon-hero h1[data-type-role="display"]{font-size:clamp(150px,22vw,310px);line-height:.82;letter-spacing:0}
+.moon-hero h1>span+span{margin-top:14px}
+.moon-identity p[data-type-role="display"]{font-size:48px;line-height:.95}
+.moon-label[data-type-role="display"]{font-size:34px;line-height:1.15}
+.moon-label>span{font-family:var(--sans)}
+.project-meta h3[data-type-role="display"]{font-size:48px;line-height:1.02}
+.moon-process h3[data-type-role="display"]{font-size:34px;line-height:1.1}
+.about-main h2[data-type-role="display"]{font-size:clamp(64px,7vw,100px);line-height:.95}
+.section-title[data-type-role="display"]{font-size:clamp(52px,5.5vw,80px)}
+.education-card h3[data-type-role="display"]{font-size:48px}
+.course-row strong[data-type-role="display"]{font-size:34px;line-height:1}
+.study-interests h3[data-type-role="display"]{font-size:40px}
+.document-intro h2[data-type-role="display"]{font-size:54px}
+.document-title[data-type-role="display"]{font-size:44px}
+.contact h2[data-type-role="display"]{font-size:clamp(72px,8.3vw,120px);line-height:.94;letter-spacing:0}
+@media(max-width:760px){
+ .moon-hero h1[data-type-role="display"]{font-size:clamp(112px,36vw,230px);line-height:.85}
+ .moon-identity p[data-type-role="display"]{font-size:42px}
+ .moon-label[data-type-role="display"]{font-size:30px}
+ .project-meta h3[data-type-role="display"]{font-size:44px}
+ .about-main h2[data-type-role="display"]{font-size:68px}
+ .education-card h3[data-type-role="display"]{font-size:44px}
+ .contact h2[data-type-role="display"]{font-size:clamp(66px,17vw,106px)}
+}
+/* Consistent, quiet feedback: no hover palette changes. */
+:where(button,a){transition:scale 180ms cubic-bezier(.2,.7,.3,1)}
+:where(a){display:inline-block}
+@media(hover:hover) and (pointer:fine){
+ button:not(:disabled):not([aria-disabled="true"]):hover,
+ a:not([aria-disabled="true"]):hover{scale:1.035}
+ .project-link:hover,.document-link:hover,.skill-evidence>a:hover,.evidence-item:hover{scale:1.012}
+}
+button:disabled,[aria-disabled="true"]{scale:1}
+@media(prefers-reduced-motion:reduce){a,button{transition:none!important;scale:1!important}}
+@media print{.moon-hero h1[data-type-role="display"]{font-size:120px}}
+
+.course-row strong[data-type-role="display"]{font-size:28px;line-height:1}
