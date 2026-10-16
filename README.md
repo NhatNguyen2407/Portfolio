@@ -54,7 +54,7 @@ The build uses `SITE_URL`, then `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_UR
 | `public/assets/typography.css` | Kajiro headings, Manrope body text, hover scaling |
 | `public/assets/site.js` | Navigation, filters, carousel, copy email, chart controls |
 | `public/assets/brand-counts.csv` | Data for the interactive academic chart |
-| `public/assets/documents/` | Local-only documents; omitted from public source pending explicit approval |
+| `public/assets/documents/` | Public Resume, Academic CV, and Project Portfolio downloads |
 | `public/assets/` | Local fonts, licenses, images, favicon, and social preview |
 | `scripts/build.mjs` | Dependency-free static build |
 | `scripts/serve.mjs` | Local development and preview server |
@@ -90,4 +90,4 @@ Kajiro was supplied by the owner. Manrope is the active body font. Advercase Dem
 The static build, JavaScript syntax, local file links, project count, and unchanged document downloads were checked during preparation. Browser-level visual QA is still pending. Repository: https://github.com/NhatNguyen2407/Portfolio. Target Vercel project: `web_portfolio` in `bibii-s-projects`. Deployment status must be checked in Vercel; a successful source upload alone does not verify a live release.
 
 
-Personal document binaries are currently excluded from the public repository pending explicit publication approval. Document cards open an email request instead of linking to missing files.
+The owner approved public release of all three document downloads on 16 October 2026. These files are included unchanged in the repository and deployed website.

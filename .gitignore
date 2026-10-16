@@ -7,5 +7,3 @@ dist/
 .DS_Store
 Thumbs.db
 *.log
-public/assets/documents/*.docx
-public/assets/documents/*.pdf
