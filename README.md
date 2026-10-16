@@ -1,6 +1,27 @@
 # Nguyen Huyen Minh Nhat - Portfolio
 
-Personal portfolio for frontend opportunities, collaboration, and future postgraduate study. Built with HTML, CSS, and vanilla JavaScript. No framework, backend, database, API keys, or package dependencies are required.
+I'm Nhat, a Computer Science student at Swinburne Vietnam with a minor in Data Science. I spend most of my project time on frontend development, and I'm learning more about backend integration through my e-commerce project, Dioxyzine Frog.
+
+This is my personal portfolio. I use it to share what I've built, explain my contributions to team projects, and introduce myself to people I might work or study with.
+
+## What's inside
+
+The website includes six projects:
+
+- **Dioxyzine Frog** - my e-commerce project for custom plushies and accessories.
+- **SigmaSecurity** - my frontend and UX/UI contributions to a COS30049 group project.
+- **Reading the dataset** - my KNIME work for COS30045, with an interactive chart.
+- **Digi-Capitale** - my contributions to a residential services platform.
+- **Virtual OS** - a personal gift built as a React desktop with small apps and games.
+- **Anniversary Gift** - an interactive story built with HTML, CSS, and JavaScript.
+
+Each project page explains the scope of my work and links to its source or contribution records. My Resume, Academic CV, and Project Portfolio are also available to download from the website.
+
+## How I put the site together
+
+The site uses HTML, CSS, and vanilla JavaScript. It doesn't need a framework, database, or API keys. A small Node.js script builds the static files for Vercel.
+
+I wanted the design to feel personal without getting in the way of the content: a dark blue palette, condensed headings, fine divider lines, and subtle hover scaling. Kajiro is the heading font and Manrope is the body font. More details are in [FONT_SETUP.md](FONT_SETUP.md).
 
 ## Run locally
 
@@ -10,84 +31,59 @@ Use Node.js 22.x. From the repository root:
 npm run dev
 ```
 
-Open http://localhost:5173. Edit files in `public/` and refresh the browser.
+Open http://localhost:5173. No dependency installation is needed. To build and preview the output:
 
 ```bash
 npm run build
 npm run preview
 ```
 
-The build writes `dist/`, resolves site metadata, and generates `sitemap.xml` and `robots.txt`. Generated output is not committed.
+I edit the files in `public/`. The build copies them into `dist/`, fills in the site URL, and generates `sitemap.xml` and `robots.txt`. The `dist/` folder is generated and isn't committed.
 
-## Deploy on Vercel
+## File structure
 
-Import `NhatNguyen2407/Portfolio` as a new project. Use these settings:
+| Path | What it contains |
+| --- | --- |
+| `public/index.html` | Homepage, project carousel, profile, education, downloads, and contact |
+| `public/work/` | Six individual project pages |
+| `public/404.html` | Not-found page |
+| `public/assets/style.css` | Base layouts and components |
+| `public/assets/moon.css` | Blue theme, illustrations, carousel, and spacing |
+| `public/assets/typography.css` | Fonts, heading sizes, and hover behaviour |
+| `public/assets/site.js` | Menu, project filters, carousel, copy email, and chart interactions |
+| `public/assets/documents/` | Resume, Academic CV, and Project Portfolio |
+| `public/assets/brand-counts.csv` | Data used by the academic chart |
+| `public/assets/` | Images, fonts, licenses, favicon, and social preview |
+| `scripts/build.mjs` | Static build script |
+| `scripts/serve.mjs` | Local development and preview server |
+| `vercel.json` | Build, routing, and response-header settings |
+
+The stylesheets load in this order: `style.css`, `moon.css`, then `typography.css`. Project cards use `data-project-type="software"` or `"data"` for filtering. When adding a project, I also update the initial project count and the next-project links.
+
+## Deployment
+
+This repository is connected to my Vercel project, `web_portfolio`. Updates to `main` trigger a deployment.
 
 | Setting | Value |
 | --- | --- |
-| Production branch | main |
 | Root Directory | Repository root, `.` |
 | Framework Preset | Other |
 | Build Command | `node scripts/build.mjs` |
 | Output Directory | `dist` |
-| Install Command | Skip, no dependencies |
+| Install Command | Skipped - no dependencies |
 | Node.js | 22.x |
 
-`vercel.json` includes the build settings, clean URLs, trailing slashes, and response headers. No secrets are required. Git integration can automatically deploy later commits to `main`.
+The build uses `SITE_URL`, then `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL` for canonical links and the sitemap. Locally, it falls back to `http://localhost:5173`. For a custom domain, I can set `SITE_URL` to its HTTPS origin. Preview builds include a noindex directive.
 
-The build uses `SITE_URL`, then `VERCEL_PROJECT_PRODUCTION_URL`, then `VERCEL_URL` for canonical links and the sitemap. The local fallback is `http://localhost:5173`. If you add a custom domain, set `SITE_URL` to its HTTPS origin and redeploy. Preview deployments emit a noindex directive.
+## A few notes on the projects
 
-## Source structure
+I keep personal projects, team contributions, and coursework separate in the descriptions. Dioxyzine Frog currently uses PayPal Sandbox. The data visualisation counts dataset records, not sales. The Gifts illustrations use neutral content instead of personal photos and messages.
 
-| Path | Purpose |
-| --- | --- |
-| `public/index.html` | Homepage, project cards, profile, education, downloads, contact |
-| `public/404.html` | Not-found page |
-| `public/work/dioxyzine-frog/` | E-commerce project overview |
-| `public/work/sigma-security/` | COS30049 team contribution |
-| `public/work/data-exploration/` | KNIME data exploration and interactive chart |
-| `public/work/digi-capitale/` | Residential services contribution |
-| `public/work/virtual-os/` | React desktop gift project |
-| `public/work/anniversary-gift/` | Interactive storytelling gift project |
-| `public/assets/style.css` | Base layout, components, case studies, responsive rules |
-| `public/assets/moon.css` | Midnight-blue theme, carousel, illustrations, compact spacing |
-| `public/assets/typography.css` | Kajiro headings, Manrope body text, hover scaling |
-| `public/assets/site.js` | Navigation, filters, carousel, copy email, chart controls |
-| `public/assets/brand-counts.csv` | Data for the interactive academic chart |
-| `public/assets/documents/` | Public Resume, Academic CV, and Project Portfolio downloads |
-| `public/assets/` | Local fonts, licenses, images, favicon, and social preview |
-| `scripts/build.mjs` | Dependency-free static build |
-| `scripts/serve.mjs` | Local development and preview server |
-| `FONT_SETUP.md` | Font provenance and usage notes |
-| `vercel.json` | Hosting configuration |
+Related repositories:
 
-## Editing
+- [My projects](https://github.com/NhatNguyen2407/Project)
+- [Swinburne coursework](https://github.com/NhatNguyen2407/Swinburne)
+- [Digi-Capitale](https://github.com/MaiChiLe113/digi-capitale)
+- [Gifts](https://github.com/NhatNguyen2407/Gifts)
 
-- Update personal details and project cards in `public/index.html`.
-- Update project narratives in each `public/work/<slug>/index.html`.
-- Keep stylesheet order: `style.css`, `moon.css`, then `typography.css`.
-- New carousel cards need `class="project"` and `data-project-type="software"` or `"data"`. Keep the initial count and project sequence in sync; JavaScript calculates filtered counts.
-- Link `Visit website` only to a confirmed deployment. Gifts currently link to source and case studies.
-- Buttons scale slightly on hover without changing color. Reduced-motion preferences disable scaling.
-- Use the plain hyphen `-` in new website copy. Keep existing document downloads unchanged unless editing those documents is separately requested.
-- Do not edit `dist/`. The build replaces it.
-
-## Content and assets
-
-The six project overviews distinguish personal work, team contributions, and academic exercises. Dioxyzine Frog payments are described as PayPal Sandbox. Academic chart counts are records, not sales. Gifts illustrations contain neutral content rather than private messages or photographs.
-
-Project sources:
-
-- https://github.com/NhatNguyen2407/Project
-- https://github.com/NhatNguyen2407/Swinburne
-- https://github.com/MaiChiLe113/digi-capitale
-- https://github.com/NhatNguyen2407/Gifts
-
-Kajiro was supplied by the owner. Manrope is the active body font. Advercase Demo is not included. Font licenses and provenance are documented in `FONT_SETUP.md` and the asset license files. Keep third-party assets under their own terms; the repository does not grant a blanket license to photographs, documents, project logos, or fonts.
-
-## Verification and release status
-
-The static build, JavaScript syntax, local file links, project count, and unchanged document downloads were checked during preparation. Browser-level visual QA is still pending. Repository: https://github.com/NhatNguyen2407/Portfolio. Target Vercel project: `web_portfolio` in `bibii-s-projects`. Deployment status must be checked in Vercel; a successful source upload alone does not verify a live release.
-
-
-The owner approved public release of all three document downloads on 16 October 2026. These files are included unchanged in the repository and deployed website.
+Fonts and other third-party assets retain their own licenses. Publishing this repository doesn't grant permission to reuse those assets or my personal documents.
